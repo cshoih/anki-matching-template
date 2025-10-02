@@ -10,13 +10,12 @@ Interactive Anki template for matching questions with dropdown selections.
         <p align="center"><i>Clinical Scenario Matching</i></p>
       </td>
       <td width="50%">
-        <img width="100%" alt="anatomy demo" src="https://github.com/user-attachments/assets/9a159e3d-409e-47a5-8f29-1246d75dc0a9" />
+        <img width="100%" alt="Screenshot 2025-10-03 at 2 29 53 am" src="https://github.com/user-attachments/assets/cd12bbbe-fa91-409b-bd23-8a69102becaa" />
         <p align="center"><i>Anatomy</i></p>
       </td>
     </tr>
   </table>
 </div>
-
 
 
 
