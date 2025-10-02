@@ -11,7 +11,7 @@ Interactive Anki template for matching questions with dropdown selections.
       </td>
       <td width="50%">
         <img width="100%" alt="Screenshot 2025-10-03 at 2 29 53 am" src="https://github.com/user-attachments/assets/cd12bbbe-fa91-409b-bd23-8a69102becaa" />
-        <p align="center"><i>Anatomy</i></p>
+        <p align="center"><i>Anatomy Flag Race</i></p>
       </td>
     </tr>
   </table>
