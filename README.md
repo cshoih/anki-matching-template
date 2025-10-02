@@ -2,6 +2,26 @@
 
 Interactive Anki template for matching questions with dropdown selections.
 
+<div align="center">
+  <table>
+    <tr>
+      <td width="50%">
+        <img width="100%" alt="clinical scenario demo" src="https://github.com/user-attachments/assets/e6fc4eb3-054b-4e08-b115-9581f55e60e1" />
+        <p align="center"><i>Clinical Scenario Matching</i></p>
+      </td>
+      <td width="50%">
+        <img width="100%" alt="anatomy demo" src="https://github.com/user-attachments/assets/9a159e3d-409e-47a5-8f29-1246d75dc0a9" />
+        <p align="center"><i>Anatomy</i></p>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+
+
+
+
 ## Features
 - ✅ Text-based matching (left labels → right dropdowns)
 - ✅ Automatic shuffling of dropdown options
@@ -63,3 +83,24 @@ Follow the installation instructions below to set up the template manually.
 | **Answer4** | `Cell transplantation` |
 
 **Important:** Separate items in Labels and Options with `|` (pipe character)
+
+<div align="center">
+  <table>
+    <tr>
+      <td width="33%">
+        <img width="100%" alt="card-making demo image 1" src="https://github.com/user-attachments/assets/5e07e065-cbda-42fa-97d3-a2e4b383efc9" />
+        <p align="center"><i>Card Creation Process 1</i></p>
+      </td>
+      <td width="33%">
+        <img width="100%" alt="card-making demo image 2" src="https://github.com/user-attachments/assets/4f2f78e2-bff1-4403-84f5-d8e2ed229daf" />
+        <p align="center"><i>Card Creation Process 2</i></p>
+      </td>
+      <td width="34%">
+        <img width="100%" alt="card-outcome-demo-image-3" src="https://github.com/user-attachments/assets/8d61038f-ea8e-455b-91ba-7302835e3d02" />
+        <p align="center"><i>Final Matching Interface</i></p>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
