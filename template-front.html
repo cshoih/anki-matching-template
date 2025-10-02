@@ -1,0 +1,141 @@
+<div style="font-family: Arial, Helvetica, sans-serif; max-width: 820px; margin: 0 auto;">
+  <h3 style="margin: 6px 0 10px; font-family: inherit;">{{Prompt}}</h3>
+
+  <div style="text-align:center; margin-bottom:12px;">
+    {{Image}}
+  </div>
+
+  <div id="rows"></div>
+
+  <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+    <button id="checkBtn" type="button">Check</button>
+    <button id="showBtn" type="button">Show Answers</button>
+    <button id="resetBtn" type="button">Reset</button>
+    <div id="score" style="margin-left:auto; font-weight:700;"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // Left side labels (what you're matching FROM)
+  const LABELS_RAW = "{{Labels}}";
+  const labels = LABELS_RAW.split("|").map(s => s.trim()).filter(Boolean);
+  
+  const N = labels.length;
+
+  // Right side options (dropdown choices)
+  const OPTS_RAW = "{{Options}}";
+  const options = OPTS_RAW.split("|").map(s => s.trim()).filter(Boolean);
+
+  // shuffle options (optional - comment out if you want fixed order)
+  const shuffle = a => a.sort(() => Math.random() - 0.5);
+  shuffle(options);
+
+  // answers - use Answer1, Answer2, etc.
+  const ans = [];
+  ans[1] = ("{{Answer1}}"||"").trim();
+  ans[2] = ("{{Answer2}}"||"").trim();
+  ans[3] = ("{{Answer3}}"||"").trim();
+  ans[4] = ("{{Answer4}}"||"").trim();
+  ans[5] = ("{{Answer5}}"||"").trim();
+  ans[6] = ("{{Answer6}}"||"").trim();
+  ans[7]  = ("{{Answer7}}" ||"").trim();
+  ans[8]  = ("{{Answer8}}" ||"").trim();
+  ans[9]  = ("{{Answer9}}" ||"").trim();
+  ans[10] = ("{{Answer10}}"||"").trim();
+
+  const rows = document.getElementById("rows");
+
+  // build matching rows
+  for (let i = 1; i <= N; i++) {
+    const row = document.createElement("div");
+    row.style.display = "flex";
+    row.style.alignItems = "center";
+    row.style.gap = "12px";
+    row.style.margin = "10px 0";
+
+    const label = document.createElement("div");
+    label.textContent = labels[i-1] || `Item ${i}`;
+    label.style.flex = "1";
+    label.style.fontWeight = "600";
+    label.style.minWidth = "200px";
+
+    const arrow = document.createElement("div");
+    arrow.textContent = "→";
+    arrow.style.fontSize = "20px";
+    arrow.style.color = "#666";
+
+    const sel = document.createElement("select");
+    sel.id = "q"+i;
+    sel.style.flex = "1";
+    sel.style.minWidth = "280px";
+    sel.style.padding = "8px 10px";
+    sel.style.border = "1px solid #ccc";
+    sel.style.borderRadius = "6px";
+    sel.style.fontSize = "14px";
+    sel.innerHTML =
+      '<option value="">— Select —</option>' +
+      options.map(o => `<option value="${o}">${o}</option>`).join("");
+
+    const fb = document.createElement("span");
+    fb.id = "f"+i;
+    fb.style.fontWeight = "700";
+    fb.style.fontSize = "18px";
+    fb.style.marginLeft = "8px";
+    fb.style.minWidth = "20px";
+
+    row.appendChild(label);
+    row.appendChild(arrow);
+    row.appendChild(sel);
+    row.appendChild(fb);
+    rows.appendChild(row);
+  }
+
+  const norm = s => (s||"").trim().toLowerCase();
+
+  function check() {
+    let score = 0;
+    for (let i=1;i<=N;i++){
+      const sel = document.getElementById("q"+i);
+      const fb  = document.getElementById("f"+i);
+      const ok  = norm(sel.value) === norm(ans[i] || "");
+      sel.style.border = ok ? "2px solid #16A34A" : "2px solid #DC2626";
+      fb.textContent = ok ? "✓" : "✗";
+      fb.style.color = ok ? "#16A34A" : "#DC2626";
+      if (ok) score++;
+    }
+    document.getElementById("score").textContent = `Score: ${score}/${N}`;
+  }
+
+  function showAnswers(){
+    for (let i=1;i<=N;i++){
+      const sel = document.getElementById("q"+i);
+      const correct = ans[i];
+      if (!correct) continue;
+      const match = options.find(o => norm(o) === norm(correct));
+      if (match) sel.value = match;
+    }
+    check();
+  }
+
+  function resetAll(){
+    for (let i=1;i<=N;i++){
+      const sel = document.getElementById("q"+i);
+      const fb  = document.getElementById("f"+i);
+      sel.value = "";
+      sel.style.border = "1px solid #ccc";
+      fb.textContent = "";
+    }
+    document.getElementById("score").textContent = "";
+  }
+
+  document.getElementById("checkBtn").addEventListener("click", check);
+  document.getElementById("showBtn").addEventListener("click", showAnswers);
+  document.getElementById("resetBtn").addEventListener("click", resetAll);
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); check(); }
+    if (e.key === "Enter" && e.shiftKey) { e.preventDefault(); showAnswers(); }
+  });
+})();
+</script>
