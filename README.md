@@ -10,8 +10,17 @@ Interactive Anki template for matching questions with dropdown selections.
 - ✅ Keyboard shortcuts (Enter = Check, Shift+Enter = Show Answers)
 - ✅ Cross-platform compatible (works on all devices)
 
+
 ## Installation
 
+### Option 1: Download Ready-to-Use Deck
+1. **Download:** [`anki-matching-template.apkg`](anki-matching-template.apkg)
+2. **Import:** Double-click the file or go to **File → Import** in Anki
+3. **Done!** The note type and sample cards are ready to use
+
+---
+### Option 2: Manual Setup
+Follow the installation instructions below to set up the template manually.
 ### 1. Create Note Type in Anki
 1. Go to **Tools → Manage Note Types → Add**
 2. Clone "Basic" and name it "Matching"
